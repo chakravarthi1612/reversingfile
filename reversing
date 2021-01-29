@@ -1,0 +1,23 @@
+#include<stdio.h>
+#include<stdlib.h>
+int  main(int argc,char*argv[])
+{
+	FILE *fp;
+	long int n;
+	char ch;
+	fp=fopen(argv[1],"w");
+	printf("enter the data into the file\n");
+	while((ch=getchar())!=EOF)
+	putc(ch,fp);
+	fclose(fp);
+	printf("data after reversing is\n");
+	fp=fopen(argv[1],"r");
+	n=atoi(argv[2]);
+	fseek(fp,n,0);
+	do
+	{
+		ch=getc(fp);
+		putchar(ch);
+	} while(!fseek(fp,-2l,1));
+	fclose(fp);
+}
